@@ -1,52 +1,54 @@
 ## establishment-classifier-gemini
 
-Este repositório apresenta um script Python que utiliza o poder do modelo de linguagem Gemini da Google para automatizar a categorização de estabelecimentos comerciais com base em seus nomes.
+Este repositório contém um script Python que utiliza o modelo de linguagem Gemini da Google para automatizar a categorização de estabelecimentos comerciais a partir de seus nomes. Essa ferramenta é especialmente útil para **analisar gastos em extratos de cartão de crédito**, permitindo identificar padrões de consumo e otimizar o orçamento pessoal.
 
-## Descrição
+### Descrição
 
-O script analisa os nomes de estabelecimentos fornecidos como entrada e os classifica em categorias relevantes, como "Saúde", "Alimentação", "Transporte", etc. Além da categoria, o script também fornece uma breve justificativa para cada classificação, auxiliando na compreensão da decisão do modelo.
+O script analisa os nomes dos estabelecimentos presentes no extrato e os classifica em categorias relevantes, como "Saúde", "Alimentação", "Transporte", etc. Além da categoria, o script também fornece uma breve justificativa para cada classificação, auxiliando na compreensão da decisão do modelo e na análise dos gastos.
 
-## Funcionalidades
+### Funcionalidades
 
 * **Categorização Inteligente:** Utiliza o modelo Gemini da Google, treinado em uma vasta quantidade de dados, para classificar estabelecimentos com precisão.
 * **Justificativas Detalhadas:** Explica por que cada estabelecimento foi classificado em determinada categoria, aumentando a transparência e a confiança nos resultados.
-* **Interface Simples:** A interação com o script é fácil e intuitiva. Basta inserir os nomes dos estabelecimentos separados por vírgula.
+* **Interface Simples:** A interação com o script é fácil e intuitiva, bastando inserir os nomes dos estabelecimentos separados por vírgula.
 * **Tratamento de Erros e Formatos Inesperados:** O script lida com respostas do modelo que não seguem o formato padrão e com inconsistências nos dados de entrada, garantindo a robustez da solução.
 * **Customização:** O código é facilmente adaptável para diferentes modelos de linguagem da Google ou para cenários de classificação mais específicos.
+* **Análise de Gastos:** Permite categorizar automaticamente as transações do extrato do cartão de crédito, facilitando a identificação de padrões de gastos e o planejamento financeiro.
 
-## Como Usar
+### Melhorias Futuras
 
-1. **Clone o Repositório:**
+* **Categorização Personalizada:** Permitir que o usuário defina suas próprias categorias e regras de classificação.
+* **Aprendizado Contínuo:** Implementar um mecanismo para que o modelo aprenda com as correções do usuário, melhorando sua precisão ao longo do tempo.
 
-   ```bash
-   git clone https://github.com/seu-usuario/establishment-classifier-gemini.git
+### Como Usar (Google Colab)
+
+1. **Abra o notebook no Colab:**
+   * Acesse o Google Colab: [https://colab.research.google.com/](https://colab.research.google.com/)
+   * Clique em "Arquivo" > "Abrir notebook" e selecione o arquivo `categorizador_inteligente.ipynb` do seu Google Drive ou faça upload dele.
+
+2. **Configure sua Chave de API:**
+   * Crie um arquivo chamado `credentials.json` na mesma pasta do seu notebook no Google Drive.
+   * Insira sua chave de API do Google Cloud Console dentro desse arquivo.
+   * No seu notebook, carregue as credenciais usando o seguinte código:
+
+   ```python
+   import os
+   os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials.json"
    ```
 
-2. **Instale as Dependências:**
+3. **Execute as células do notebook:**
+   * Clique no botão "Executar" (ícone de "play") em cada célula do notebook para executar o código em sequência.
+   * Ou pressione `Shift + Enter` para executar a célula atual e passar para a próxima.
 
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure sua Chave de API:**
-
-   * Obtenha uma chave de API do Google Cloud Console.
-   * Crie um arquivo `credentials.json` na raiz do projeto e insira sua chave.
-
-4. **Execute o Script:**
-
-   ```bash
-   python main.py
-   ```
-
-5. **Insira os Estabelecimentos:**
-
-   * Digite os nomes dos estabelecimentos separados por vírgula e pressione Enter.
-
-## Exemplo
+### Exemplo
 
 ```
-Digite os nomes dos estabelecimentos (separados por vírgula): Padaria do Zé, Clínica Saúde & Vida, Restaurante Sabor da Terra
+Digite os nomes dos estabelecimentos (separados por vírgula): Padaria do Zé, Clínica Saúde & Vida, Restaurante Sabor da Terra, Uber, Netflix
+```
+
+Saída:
+
+```
 input: Padaria do Zé
 output: Alimentação
 output_justificativa: Padaria
@@ -58,18 +60,24 @@ output_justificativa: Clínica
 input: Restaurante Sabor da Terra
 output: Alimentação
 output_justificativa: Restaurante
+
+input: Uber
+output: Transporte
+output_justificativa: Serviço de transporte
+
+input: Netflix
+output: Entretenimento
+output_justificativa: Serviço de streaming
 ```
 
-## Tecnologias Utilizadas
+### Tecnologias Utilizadas
 
 * Python
 * Google Generative AI
 * Google Gemini
 
-## Contribuição
+### Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, correções ou novos recursos!
 
-## Licença
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
