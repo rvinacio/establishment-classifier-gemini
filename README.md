@@ -19,6 +19,9 @@ O script analisa os nomes dos estabelecimentos presentes no extrato e os classif
 
 * **Categorização Personalizada:** Permitir que o usuário defina suas próprias categorias e regras de classificação.
 * **Aprendizado Contínuo:** Implementar um mecanismo para que o modelo aprenda com as correções do usuário, melhorando sua precisão ao longo do tempo.
+* **Integração com Banco de Dados:**
+    * **Input de Dados:** Permitir que os nomes dos estabelecimentos sejam lidos diretamente de um banco de dados, facilitando o processamento em lote e a integração com outras fontes de dados.
+    * **Armazenamento de Resultados:** Salvar as categorias e justificativas geradas pelo modelo Gemini em um banco de dados, possibilitando análises mais aprofundadas, geração de relatórios e acompanhamento do desempenho do modelo ao longo do tempo.
 
 ### Como Usar (Google Colab)
 
